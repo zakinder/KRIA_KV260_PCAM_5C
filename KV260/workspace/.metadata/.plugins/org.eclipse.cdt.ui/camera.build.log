@@ -1,0 +1,6 @@
+00:20:44 **** Incremental Build of configuration Debug for project camera ****
+make all 
+make: Nothing to be done for 'all'.
+
+00:20:44 Build Finished (took 179ms)
+
