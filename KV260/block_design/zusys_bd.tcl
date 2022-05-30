@@ -269,12 +269,13 @@ proc create_hier_cell_CLOCK_GEN { parentCell nameHier } {
   # Create instance: clk_wiz_0, and set properties
   set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
   set_property -dict [ list \
-   CONFIG.CLKOUT1_JITTER {138.108} \
-   CONFIG.CLKOUT1_PHASE_ERROR {148.904} \
-   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {74.250} \
-   CONFIG.MMCM_CLKFBOUT_MULT_F {24.875} \
-   CONFIG.MMCM_CLKOUT0_DIVIDE_F {16.750} \
-   CONFIG.MMCM_DIVCLK_DIVIDE {2} \
+   CONFIG.CLKOUT1_JITTER {288.181} \
+   CONFIG.CLKOUT1_PHASE_ERROR {489.690} \
+   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {148.50} \
+   CONFIG.MMCM_CLKFBOUT_MULT_F {86.875} \
+   CONFIG.MMCM_CLKOUT0_DIVIDE_F {6.500} \
+   CONFIG.MMCM_DIVCLK_DIVIDE {9} \
+   CONFIG.USE_LOCKED {false} \
    CONFIG.USE_RESET {false} \
  ] $clk_wiz_0
 
@@ -290,11 +291,12 @@ proc create_hier_cell_CLOCK_GEN { parentCell nameHier } {
    CONFIG.CLKOUT3_JITTER {94.863} \
    CONFIG.CLKOUT3_PHASE_ERROR {87.181} \
    CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {300.000} \
-   CONFIG.CLKOUT3_USED {true} \
+   CONFIG.CLKOUT3_USED {false} \
    CONFIG.MMCM_CLKOUT0_DIVIDE_F {6.000} \
    CONFIG.MMCM_CLKOUT1_DIVIDE {8} \
-   CONFIG.MMCM_CLKOUT2_DIVIDE {4} \
-   CONFIG.NUM_OUT_CLKS {3} \
+   CONFIG.MMCM_CLKOUT2_DIVIDE {1} \
+   CONFIG.NUM_OUT_CLKS {2} \
+   CONFIG.USE_LOCKED {false} \
    CONFIG.USE_RESET {false} \
  ] $clk_wiz_1
 
@@ -367,14 +369,17 @@ proc create_hier_cell_V_DMA { parentCell nameHier } {
   # Create instance: axi_vdma_0, and set properties
   set axi_vdma_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_vdma:6.3 axi_vdma_0 ]
   set_property -dict [ list \
+   CONFIG.c_addr_width {64} \
    CONFIG.c_include_mm2s_dre {1} \
    CONFIG.c_include_s2mm_dre {1} \
    CONFIG.c_m_axis_mm2s_tdata_width {24} \
    CONFIG.c_mm2s_genlock_mode {1} \
    CONFIG.c_mm2s_linebuffer_depth {4096} \
-   CONFIG.c_num_fstores {1} \
+   CONFIG.c_mm2s_max_burst_length {128} \
+   CONFIG.c_num_fstores {3} \
    CONFIG.c_s2mm_genlock_mode {0} \
    CONFIG.c_s2mm_linebuffer_depth {4096} \
+   CONFIG.c_s2mm_max_burst_length {128} \
  ] $axi_vdma_0
 
   # Create instance: axis_subset_converter_0, and set properties

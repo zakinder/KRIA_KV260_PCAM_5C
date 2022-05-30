@@ -1,1 +1,1 @@
-call M:\KV260\vitis\auto_create_vitis\build_vitis.bat
+call vitis\auto_create_vitis\build_vitis.bat
